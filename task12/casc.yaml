@@ -1,0 +1,18 @@
+# Creating a User
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: ${JENKINS_ADMIN_ID}
+         password: ${JENKINS_ADMIN_PASSWORD}
+# Setting Up Build Authorization
+security:
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: triggeringUsersAuthorizationStrategy
+# Specifying the Jenkins URL
+unclassified:
+  location:
+    url: http://34.125.243.42/:8080/
